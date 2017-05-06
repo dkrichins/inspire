@@ -7,15 +7,16 @@ function TodoController(){
 	this.addTodoFromForm = function(e) {
 		e.preventDefault()
 		// TAKE THE INFORMATION FORM THE FORM
-
+		var form = e.target
 		//ADD IT TO THE ARRAY BELOW
-		var todosArry = todoService.getTodos()
-
+		var todosArr = todoService.getTodos()
+		todosArr.push(form.todo.value)
 
 
 
 		// FINAL ACTION OF ADDING A TODO
-		todoService.saveTodos(todosArry)
+		todoService.saveTodos(todosArr)
 	}
+
 
 }

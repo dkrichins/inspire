@@ -4,11 +4,11 @@ function WeatherController(){
 	
 	this.getWeather = function(){
 		// document.getElementById('loader-weather').className = ""
-		weatherService.getWeather(draw)
+		weatherService.getWeather(drawWeather)
 		
 		//What can you do with this weather object?
 	}
-	function draw(weather){
+	function drawWeather(weather){
 		console.log(weather)		
 		var farenheitTemp = Math.round(1.8 * (weather.main.temp - 273) + 32)
 		var celsiusTemp = Math.round((farenheitTemp - 32)* (5/9))
