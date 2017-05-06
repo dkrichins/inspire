@@ -3,20 +3,22 @@ function ImageController() {
 	
 	var imageService = new ImageService()
 	
-	this.getImage = function(callWhenDone){
+	this.getImage = function(){
 
 		imageService.getImage(drawImage)
 
 	}
 
-	function drawImage(url){
+	function drawImage(targetUrl){
 
-		var body = document.getElementsByTagName('body')
-		body.style.backgroundImage = url
+		var body =  document.getElementsByTagName('body')[0]
+		body.style.backgroundImage = targetUrl.url
+		//document.body.style.backgroundImage = targetUrl.url
+		// console.log(targetUrl.url)
 
 	}
 
-
+this.getImage()
 
 }
 

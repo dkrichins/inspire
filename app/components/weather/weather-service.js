@@ -12,7 +12,7 @@ function WeatherService() {
 	}
 	
 
-	this.tempFormat = function(){
+	this.temperatureFormat = function(){
 		if(document.getElementById('farenheit').className = "hidden")
 		{
 			document.getElementById('farenheit').className = ""

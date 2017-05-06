@@ -18,15 +18,15 @@ function WeatherController(){
 			<h2>${weather.name}</h2>
 			<h3 id="farenheit" class="hidden">${farenheitTemp}°<h3>
 			<h3 id="celsius" class="">${celsiusTemp}°</h3>
-			<button type="button" onclick="app.controllers.weatherController.tempFormat()">Select Format</button>
+			<button type="button" onclick="app.controllers.weatherController.temperatureFormat()">Select Format</button>
 			
 			`
 		
 		document.getElementById("weather").innerHTML = template
 	}
 
-	this.tempFormat = function(){
-		weatherService.tempFormat()
+	this.temperatureFormat = function(){
+		weatherService.temperatureFormat()
 
 	}
 
