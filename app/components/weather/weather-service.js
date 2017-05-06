@@ -3,18 +3,26 @@ function WeatherService() {
 	var url2 = 'http://api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82255fd0a21fa1238699b9eda2ee35'
 	var apiUrl = url + encodeURIComponent(url2);
 
-
 	this.getWeather = function (callWhenDone) {
-		var w = localStorage.getItem('weather');
-		if (w) {
-			w = JSON.parse(w);
-			console.log('Weather Data:', w)
-			return callWhenDone(w)
-		}
-		
-		$.get(apiUrl, function (res) {
+		return $.get(apiUrl, function (res) {
+			res = JSON.parse(res)
 			localStorage.setItem('weather', JSON.stringify(res))
 			callWhenDone(res);
 		})
+	}
+	
+
+	this.tempFormat = function(){
+		if(document.getElementById('farenheit').className = "hidden")
+		{
+			document.getElementById('farenheit').className = ""
+			document.getElementById('celsius').className = "hidden"			
+		}
+		else
+		{
+			document.getElementById('farenheit').className = "hidden"
+			document.getElementById('celsius').className = ""
+		}		
+
 	}
 }
