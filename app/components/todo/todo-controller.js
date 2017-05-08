@@ -6,17 +6,43 @@ function TodoController(){
 
 	this.addTodoFromForm = function(e) {
 		e.preventDefault()
-		// TAKE THE INFORMATION FORM THE FORM
+		// TAKE THE INFORMATION FROM THE FORM
 		var form = e.target
 		//ADD IT TO THE ARRAY BELOW
-		var todosArr = todoService.getTodos()
+		todosArr = todoService.getTodos()
 		todosArr.push(form.todo.value)
-
-
-
 		// FINAL ACTION OF ADDING A TODO
+		todoService.saveTodos(todosArr)	
+		drawTodos(todoService.getTodos())
+    }
+
+	this.removeTodoFromForm = function(todo){
+
+		todosArr = todoService.getTodos()
+		todosArr.splice(todo)
 		todoService.saveTodos(todosArr)
+		drawTodos(todoService.getTodos())
 	}
 
+	
+    function drawTodos(todos){
 
+		var element = document.getElementById('todo')
+		var template = ''
+		for(var i = 0; i < todos.length; i++){
+
+			todo = todos[i]
+			template +=
+			`
+			<div class="content-todo">
+				<h3>${todo}
+				<button onclick="app.controllers.toDoController.removeTodoFromForm(event)"></button>
+			</div>			
+			
+			
+			`
+		}
+		element.innerHTML = template
+	}
+    drawTodos(todoService.getTodos())
 }
