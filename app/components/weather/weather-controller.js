@@ -15,20 +15,32 @@ function WeatherController(){
 				
 	    var template =
 			`
-			<h2>${weather.name}</h2>
+			<a onclick="app.controllers.weatherController.temperatureFormat()">${weather.name}</a>
 			<h3 id="farenheit" class="hidden">${farenheitTemp}°<h3>
 			<h3 id="celsius" class="">${celsiusTemp}°</h3>
-			<button type="button" onclick="app.controllers.weatherController.temperatureFormat()">Select Format</button>
-			
-			`
+			`			
 		
 		document.getElementById("weather").innerHTML = template
 	}
 
+	var flipTemp = true
 	this.temperatureFormat = function(){
-		weatherService.temperatureFormat()
+		if(flipTemp)
+		{
+			document.getElementById('farenheit').className = ""
+			document.getElementById('celsius').className = "hidden"	
+			flipTemp = !flipTemp		
+		}
+		else
+		{
+			document.getElementById('farenheit').className = "hidden"
+			document.getElementById('celsius').className = ""
+			flipTemp = !flipTemp
+
+		}		
 
 	}
+
 
 	// function failed(){
     // 	document.getElementById('loader').className = "hidden"

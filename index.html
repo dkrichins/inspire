@@ -3,34 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="body">
-	<div id="weather">
-		Your Weather Template
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div>
-		<form onsubmit="app.controllers.toDoController.addTodoFromForm(event)">
-			<div class="form-group">
-                <label for="todoItem">To Do Item</label>
-                <input class="form-control" type="text" name="todo" required>
-            </div>
-			<button type="submit">Add to Todos</button>
-		</form>		
-	</div>
-	<div id = "todo">
-
-
-	</div>
-
-
-
+	<section>	
+		<div class="container-fluid">	
+			<div class="row">	
+				<div class="col-xs-2">
+					<div class="well opacity-seven">
+						<div>
+							<form id="todo-form" onsubmit="app.controllers.toDoController.addTodoFromForm(event)">
+								<div class="form-group">
+									<label for="todoItem">To Do Item</label>
+									<input class="form-control" type="text" name="todo" required>
+								</div>
+								<button type="submit">Add to Todos</button>
+							</form>		
+						</div>
+						<div id="todo" class="font-color-darkblue">	
+							<!--todo info goes here-->
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-2 col-xs-offset-8">
+					<div class="well opacity-seven">
+						<div id="weather" class="font-color-darkblue font-size-three-em">	
+						<!--weather info goes here-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-3">
+					<div class="well opacity-seven margin-top-forty">	
+						<div id="clock" class="font-color-darkblue">
+							<h3>CLOCK WILL GO HERE</h3>
+							<!--clock info goes here-->	
+						</div>					
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">	
+					<div class="well opacity-seven margin-top-forty">
+						<div id="quote" class="font-color-darkblue">
+							<!--quote info goes here-->	
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!--JS Libraries-->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

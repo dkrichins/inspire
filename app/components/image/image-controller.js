@@ -11,11 +11,14 @@ function ImageController() {
 
 	function drawImage(targetUrl){
 
-		var body =  document.getElementsByTagName('body')[0]
-		body.style.backgroundImage = targetUrl.url
+		// var body =  document.getElementsById('body')[0]
+		// body.style.backgroundImage = 'url(${targetUrl.url})'
 		//document.body.style.backgroundImage = targetUrl.url
 		// console.log(targetUrl.url)
-
+		
+		
+		document.getElementById('body').style.backgroundImage =`url(${targetUrl.url})`
+		
 	}
 
 this.getImage()

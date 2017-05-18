@@ -13,13 +13,19 @@ function TodoController(){
 		todosArr.push(form.todo.value)
 		// FINAL ACTION OF ADDING A TODO
 		todoService.saveTodos(todosArr)	
-		drawTodos(todoService.getTodos())
+		// 
+		drawTodos(todosArr)
+		document.getElementById("todo-form").reset()
     }
 
-	this.removeTodoFromForm = function(todo){
+	this.removeTodoFromForm = function removeTodoFromForm(todo){
 
 		todosArr = todoService.getTodos()
-		todosArr.splice(todo)
+		// for(var i = 0; i < todosArr.length; i++){
+		// 	todo = todoArr[i]
+		// }
+			
+		todosArr.splice(todosArr.indexOf(todo),1)
 		todoService.saveTodos(todosArr)
 		drawTodos(todoService.getTodos())
 	}
@@ -36,10 +42,9 @@ function TodoController(){
 			`
 			<div class="content-todo">
 				<h3>${todo}
-				<button onclick="app.controllers.toDoController.removeTodoFromForm(event)"></button>
-			</div>			
-			
-			
+				<button onclick="app.controllers.toDoController.removeTodoFromForm(event)">X</button>
+			</div>		
+						
 			`
 		}
 		element.innerHTML = template

@@ -13,7 +13,8 @@ function QuoteController(){
 	    var template =
 			`
 			<h2>Quote of the Day</h2>
-			<h3>${quote.quote}</he>			
+			<h3>${quote.quote}</h3>		
+			<h3>----${quote.author}</h3>
 			
 			`
 		
